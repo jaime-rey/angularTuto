@@ -59,11 +59,11 @@ var HeroService = (function () {
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
-    HeroService.prototype.delete = function (id, hero) {
+    HeroService.prototype.delete = function (id, name) {
         var url = this.heroesUrl + "/" + id;
         return this.http.delete(url, { headers: this.headers })
             .toPromise()
-            .then(function () { console.log("deleted: " + id + " " + JSON.stringify(hero)); })
+            .then(function () { console.log("deleted: " + id + " " + name); })
             .catch(this.handleError);
     };
     HeroService = __decorate([
