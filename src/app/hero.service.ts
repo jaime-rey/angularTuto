@@ -58,11 +58,11 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  delete(id: number, name: String): Promise<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
+  delete(hero: Hero): Promise<void> {
+    const url = `${this.heroesUrl}/${hero.id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
-      .then(() =>{ console.log("deleted: "+id+" "+ name); })
+      .then(() =>{ console.log("deleted: "+hero.id+" "+ hero.name); })
       .catch(this.handleError);
   }
 
